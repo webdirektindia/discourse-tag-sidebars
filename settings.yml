@@ -1,0 +1,10 @@
+setup:
+  type: list
+  default: ''
+  description: |
+    Each line should be in the format of "<code>category name</code>, <code>post</code>, <code>ID</code>". The post ID can be found by inspecting the HTML source of a post and searching for <code>data-post-id</code>
+
+inherit_parent_sidebar:
+  default: true
+  description: |
+    If checked subcategories will inherit their parent category's sidebar (unless the subcategory has its own sidebar assigned). When unchecked subcategories will only display a sidebar if one is specified.

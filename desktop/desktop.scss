@@ -1,0 +1,49 @@
+#suggested-topics .category-sidebar,
+.category-sidebar {
+  display: none;
+}
+
+.category-sidebar {
+  >div {
+    height: 100%;
+  }
+}
+
+.sticky-sidebar {
+  position: sticky; 
+  top: 0;
+}
+
+.topic-list.with-sidebar {
+  .category-sidebar {
+    display: block;
+    order: 2;
+    flex: 0 0 auto;
+    border-left: 1px solid #d3dce6;
+    margin-left: 18px;
+    margin-top: 20px;
+    width: 250px;
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
+    
+    #fixed-wrapper {
+      box-sizing: border-box;
+      padding: 0 0 0 18px;
+      width: 250px;
+    }
+    
+    .category-sidebar-contents {
+      padding-left: 18px;
+    }
+    
+    .onebox-body {
+      font-size: 0.875em;
+      img,
+      .aspect-image {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
