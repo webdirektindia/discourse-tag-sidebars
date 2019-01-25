@@ -1,1 +1,1 @@
-# discourse-custom-sidebar
+# discourse-category-sidebars

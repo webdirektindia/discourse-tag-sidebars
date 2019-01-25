@@ -1,55 +1,54 @@
 @import "common/foundation/variables";
-
-.topic-list.with-sidebar {
+.topic-list.with-sidebar { // Don't show the sidebar
   > div {
     display: none;
   }
 }
-
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 767px) { // Show the sidebar at 767px
   .topic-list.with-sidebar {
     display: grid;
-    grid-column-gap: 1.5em;
+    grid-column-gap: 2%;
     align-items: start;
     grid-template-rows: 50px auto;
-    grid-template-columns: 9fr 3fr; // 12 column grid
-
     &.left {
-      grid-template-columns: 3fr 9fr; // 12 column grid
+      grid-template-columns: 20% 78%;
+      @media screen and (max-width: 900px) {
+        grid-template-columns: 25% 73%;
+      }
       grid-template-areas:
         "sidebar head"
         "sidebar body";
     }
     &.right {
-      grid-template-columns: 9fr 3fr; // 12 column grid
+      grid-template-columns: 78% 20%;
+      @media screen and (max-width: 900px) {
+        grid-template-columns: 73% 25%;
+      }
       grid-template-areas:
         "head sidebar"
         "body sidebar";
     }
-
     thead {
       grid-area: head;
       display: table;
       align-self: end;
     }
     > .category-sidebar {
+      overflow: hidden;
       display: block;
       margin-top: 15px;
       grid-area: sidebar;
       order: 3;
-      background: $tertiary-low;
-      padding: 0 1.25em 1.25em 1.25em;
+      padding: 0;
       position: sticky;
-      top: 100px;
-      #sidebar-headline {
-        margin-bottom: 0;
-      }
-      p.siderbar-intro {
-        margin-top: 0.25em;
-      }
-      .no-bullets {
+      top: 80px;
+      .cooked {
+        img, video, iframe {
+          width: 100%;
+          height: auto;
+        }
         ul, ol {
-          list-style: none;
+          padding-left: 30px;
         }
       }
     }
@@ -60,12 +59,22 @@
   }
 }
 
+.custom-sidebar {
+  #list-area .show-more.has-topics .alert { // New topic notification needs to be narrower
+    box-sizing: border-box;
+    width: 78%;
+    @media screen and (max-width: 900px) {
+    width: 73%;
+    }
+  }
+}
+
 // IE11 support, feel free to toss this into the sea
 
 @media screen and (min-width: 767px) {
   .topic-list.with-sidebar {
     display: -ms-grid;
-    -ms-grid-columns: 9fr 3fr;
+    -ms-grid-columns: 78% 20%;
     -ms-grid-rows: 50px auto;
     thead {
       -ms-grid-row: 1;

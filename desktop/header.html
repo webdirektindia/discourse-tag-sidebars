@@ -1,17 +1,12 @@
 <script type="text/discourse-plugin" version="0.8">
   function defaultSettings() {
-    return {
-      sidebar: "right",
-      style: ""
-    };
+    return {};
   }
 
   function parseSetups(raw) {
     const parsed = {};
-
     raw.split("|").forEach(setting => {
       const [category, value] = setting.split(",").map(s => s.trim());
-
       parsed[category] = parsed[category] || defaultSettings();
       parsed[category]["post"] = value;
     });
@@ -35,9 +30,8 @@
       const sidebarWrapper = document.getElementById("fixed-wrapper");
     
       function sidebarClasses(setup) {
-        $(".topic-list")
-        .addClass("with-sidebar")
-        .addClass(setup["sidebar"]);
+        $("body").addClass("custom-sidebar");
+        $(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
         $(".sticky-sidebar").css("top", stickyOffset + "px");
       }
 
@@ -46,7 +40,7 @@
         sidebarClasses(setup);
 
         const nodes = [
-          h("div", {
+          h("div.cooked", {
             innerHTML: this.getPost(setup["post"])
           })
         ];
@@ -57,23 +51,24 @@
         sidebarClasses(setup);
         
         const nodes = [
-          h("div", {
+          h("div.cooked", {
             innerHTML: this.getPost(setup["post"])
           })
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-", nodes);
 
-      } else if (/^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path))  { // If set, show sidebar for category agnostic topic lists
+      } else if (setups["all"] && /^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path))  { // If set, show sidebar for category agnostic topic lists
         const setup = setups["all"];
         sidebarClasses(setup);
 
         const nodes = [
-          h("div", {
+          h("div.cooked", {
             innerHTML: this.getPost(setup["post"])
           })
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-all", nodes);      
      } else {
+        $("body").removeClass("custom-sidebar");
         $(".topic-list").removeClass("with-sidebar");
       }
     },
