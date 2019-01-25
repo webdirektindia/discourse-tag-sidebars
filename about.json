@@ -2,6 +2,8 @@
   "name": "discourse-category-sidebars",
   "about_url": "URL",
   "license_url": "URL",
+  "component": true,
+  "license_url": "https://github.com/awesomerobot/discourse-category-sidebars/blob/master/LICENSE",
   "assets": {
   },
   "color_schemes": {

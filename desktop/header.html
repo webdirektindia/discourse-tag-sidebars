@@ -35,8 +35,8 @@
         $(".sticky-sidebar").css("top", stickyOffset + "px");
       }
 
-      if (/^\/c\//.test(path) && setups[category.name]){ // If set, show category sidebar
-        const setup = setups[category.name];
+      if (/^\/c\//.test(path) && setups[category.slug]){ // If set, show category sidebar
+        const setup = setups[category.slug];
         sidebarClasses(setup);
 
         const nodes = [
@@ -46,8 +46,8 @@
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-" + category.slug, nodes);
         
-      } else if (settings.inherit_parent_sidebar && /^\/c\//.test(path) && setups[category.parentCategory.name] != undefined && setups[category.name] == undefined ) { // Subcategory pages if unset, take on parent
-        const setup = setups[category.parentCategory.name];
+      } else if (settings.inherit_parent_sidebar && /^\/c\//.test(path) && setups[category.parentCategory.slug] != undefined && setups[category.slug] == undefined ) { // Subcategory pages if unset, take on parent
+        const setup = setups[category.parentCategory.slug];
         sidebarClasses(setup);
         
         const nodes = [
