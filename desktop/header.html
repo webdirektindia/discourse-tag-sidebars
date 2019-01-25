@@ -10,12 +10,11 @@
     const parsed = {};
 
     raw.split("|").forEach(setting => {
-      const [category, command, value] = setting.split(",").map(s => s.trim());
+      const [category, value] = setting.split(",").map(s => s.trim());
 
       parsed[category] = parsed[category] || defaultSettings();
-      parsed[category][command] = value;
+      parsed[category]["post"] = value;
     });
-
     return parsed;
   }
 
@@ -64,7 +63,7 @@
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-", nodes);
 
-      } else if (/^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path))  { // If set, show sidebar for all categories 
+      } else if (/^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path))  { // If set, show sidebar for category agnostic topic lists
         const setup = setups["all"];
         sidebarClasses(setup);
 
@@ -81,12 +80,11 @@
 
     getPost(id) {
       if (!postCache[id]) {
-        ajax(`/posts/${id}.json`).then(response => {
-          postCache[id] = response.cooked;
+        ajax(`/t/${id}.json`).then(response => {
+          postCache[id] = response.post_stream.posts[0].cooked;
           this.scheduleRerender();
         });
       }
-
       return postCache[id];
     }
   });

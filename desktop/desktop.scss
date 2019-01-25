@@ -1,49 +1,88 @@
-#suggested-topics .category-sidebar,
-.category-sidebar {
-  display: none;
-}
+@import "common/foundation/variables";
 
-.category-sidebar {
-  >div {
-    height: 100%;
+.topic-list.with-sidebar {
+  > div {
+    display: none;
   }
 }
 
-.sticky-sidebar {
-  position: sticky; 
-  top: 83px;
+@media screen and (min-width: 767px) {
+  .topic-list.with-sidebar {
+    display: grid;
+    grid-column-gap: 1.5em;
+    align-items: start;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 9fr 3fr; // 12 column grid
+
+    &.left {
+      grid-template-columns: 3fr 9fr; // 12 column grid
+      grid-template-areas:
+        "sidebar head"
+        "sidebar body";
+    }
+    &.right {
+      grid-template-columns: 9fr 3fr; // 12 column grid
+      grid-template-areas:
+        "head sidebar"
+        "body sidebar";
+    }
+
+    thead {
+      grid-area: head;
+      display: table;
+      align-self: end;
+    }
+    > .category-sidebar {
+      display: block;
+      margin-top: 15px;
+      grid-area: sidebar;
+      order: 3;
+      background: $tertiary-low;
+      padding: 0 1.25em 1.25em 1.25em;
+      position: sticky;
+      top: 100px;
+      #sidebar-headline {
+        margin-bottom: 0;
+      }
+      p.siderbar-intro {
+        margin-top: 0.25em;
+      }
+      .no-bullets {
+        ul, ol {
+          list-style: none;
+        }
+      }
+    }
+    tbody {
+      grid-area: body;
+      display: table;
+    }
+  }
 }
 
-.topic-list.with-sidebar {
-  .category-sidebar {
-    display: block;
-    order: 2;
-    flex: 0 0 auto;
-    border-left: 1px solid #d3dce6;
-    margin-left: 18px;
-    margin-top: 20px;
-    width: 250px;
-    @media screen and (max-width: 750px) {
-      display: none;
-    }
-    
-    #fixed-wrapper {
-      box-sizing: border-box;
-      padding: 0 0 0 18px;
-      width: 250px;
-    }
-    
-    .category-sidebar-contents {
-      padding-left: 18px;
-    }
-    
-    .onebox-body {
-      font-size: 0.875em;
-      img,
-      .aspect-image {
-        max-width: 100%;
-        margin-bottom: 10px;
+// IE11 support, feel free to toss this into the sea
+
+@media screen and (min-width: 767px) {
+  .topic-list.with-sidebar {
+    display: -ms-grid;
+    -ms-grid-columns: 9fr 3fr;
+    -ms-grid-rows: 50px auto;
+    thead {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      width: 100%;
+      tr {
+        border-bottom: none;
       }
+    }
+    > div {
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+      -ms-grid-row-span: 2;
+    }
+    tbody {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
     }
   }
 }
