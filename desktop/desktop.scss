@@ -35,13 +35,21 @@
     }
     > .category-sidebar {
       overflow: hidden;
-      display: block;
+      display: flex;
       margin-top: 15px;
       grid-area: sidebar;
       order: 3;
       padding: 0;
-      position: sticky;
-      top: 80px;
+      position: relative;
+      @if $stick-on-scroll == "true" {
+        position: sticky;
+        top: 80px;
+        max-height: 70vh;
+        @media screen and (max-height: 925px) {
+          max-height: 55vh;
+        }
+        overflow-y: auto;
+      }
       .cooked {
         img, video, iframe {
           width: 100%;
@@ -98,3 +106,4 @@
     }
   }
 }
+
