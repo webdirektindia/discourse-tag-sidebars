@@ -46,7 +46,7 @@
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-" + category.slug, nodes);
         
-      } else if (settings.inherit_parent_sidebar && /^\/c\//.test(path) && setups[category.parentCategory.slug] != undefined && setups[category.slug] == undefined ) { // Subcategory pages if unset, take on parent
+      } else if (settings.inherit_parent_sidebar && /^\/c\//.test(path) && category.parentCategory && setups[category.parentCategory.slug] != undefined && setups[category.slug] == undefined ) { // Subcategory pages if unset, take on parent
         const setup = setups[category.parentCategory.slug];
         sidebarClasses(setup);
         
