@@ -57,10 +57,10 @@
         ];
         return h("div.category-sidebar-contents " + ".category-sidebar-", nodes);
 
-      } else if (setups["all"] && /^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path))  { // If set, show sidebar for category agnostic topic lists
+      } else if (setups["all"] && (/^\/$/.test(path) || /^\/latest/.test(path) || /^\/new/.test(path) || /^\/unread/.test(path) || /^\/top/.test(path)))  { // If set, show sidebar for category agnostic topic lists
         const setup = setups["all"];
         sidebarClasses(setup);
-
+        console.log(setups["all"]);
         const nodes = [
           h("div.cooked", {
             innerHTML: this.getPost(setup["post"])
