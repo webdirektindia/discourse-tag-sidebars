@@ -4,7 +4,8 @@ This theme component takes a topic and applies it as a sidebar for a tag's topic
 
 :eye: [Preview it on theme creator](https://theme-creator.discourse.org/theme/awesomerobot/discourse-tag-sidebars)
 
-![34%20PM|690x423](https://meta-s3-cdn.freetls.fastly.net/optimized/3X/0/6/06232990c15daef67651d20fb17e9be04686e5be_2_1380x846.png) 
+
+![34%20PM](https://meta-s3-cdn.freetls.fastly.net/optimized/3X/9/8/9884636155a0fce6394cecce7c8ae21ed5a1f687_2_1380x500.jpeg) 
 
  :thinking: https://meta.discourse.org/t/how-do-i-install-a-theme-or-theme-component/63682
 
@@ -20,7 +21,7 @@ This theme component takes a topic and applies it as a sidebar for a tag's topic
 
 Simply input the tag name and the id of the topic (e.g. [example.com/t/example-topic/](#)**57**)
 
-![11%20PM|690x125](https://meta-s3-cdn.freetls.fastly.net/optimized/3X/f/7/f7266e11a5c930ca1df907f33e8f4c54c072c8ab_2_1380x250.png) 
+![11%20PM](https://meta-s3-cdn.freetls.fastly.net/optimized/3X/7/7/77945845bf8057611e9b6badb26973efe1e18b83_2_1380x284.png) 
 
 I recommend creating sidebar topics in their respective tags, closing the topic so there are no replies, and unlisting it (so it doesn't appear in the topic list). 
 
