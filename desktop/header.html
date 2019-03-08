@@ -36,7 +36,7 @@
         $(".sticky-sidebar").css("top", stickyOffset + "px");
       }
 
-      if (/^\/tags\//.test(path) && setups[tag.id]){ // If set, show category sidebar
+      if (/^\/tags\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
         const setup = setups[tag.id];
         sidebarClasses(setup);
 
