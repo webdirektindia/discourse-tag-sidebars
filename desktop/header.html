@@ -29,14 +29,14 @@
       const tag = controller.get("tag");
       const stickyOffset  = document.getElementsByClassName('d-header')[0].offsetHeight + 20;
       const sidebarWrapper = document.getElementById("fixed-wrapper");
-    
+
       function sidebarClasses(setup) {
         $("body").addClass("custom-sidebar");
         $(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
         $(".sticky-sidebar").css("top", stickyOffset + "px");
       }
 
-      if (/^\/tags\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
+      if (/^\/tag\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
         const setup = setups[tag.id];
         sidebarClasses(setup);
 
@@ -46,7 +46,7 @@
           })
         ];
         return h("div.tag-sidebar-contents " + ".tag-sidebar-" + tag.id, nodes);
-             
+
      } else {
         $("body").removeClass("custom-sidebar");
         $(".topic-list").removeClass("with-sidebar");
@@ -65,6 +65,9 @@
   });
 </script>
 
-<script type='text/x-handlebars' data-template-name='/connectors/before-topic-list-body/tag-sidebar'>
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/before-topic-list-body/tag-sidebar"
+>
   <div class="tag-sidebar"> {{mount-widget widget="tag-sidebar"}} </div>
 </script>
