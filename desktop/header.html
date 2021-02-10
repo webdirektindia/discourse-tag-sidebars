@@ -33,7 +33,7 @@
       
 
       function sidebarClasses(setup) {
-        //$("body").addClass("custom-sidebar");
+        $("body").addClass("custom-sidebar");
         //$(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
         $(".sticky-sidebars").css("top", stickyOffset + "px");
         
@@ -44,7 +44,6 @@
       if (/^\/tag\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
         const setup = setups[tag.id];
         sidebarClasses(setup);
-        document.querySelector("body").classList.add("custom-sidebar");
 
         const nodes = [
           h("div.cooked", {
