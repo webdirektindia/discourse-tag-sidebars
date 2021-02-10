@@ -1,4 +1,5 @@
 <script type="text/discourse-plugin" version="0.8">
+
   function defaultSettings() {
     return {};
   }
@@ -29,11 +30,15 @@
       const tag = controller.get("tag");
       const stickyOffset  = document.getElementsByClassName('d-header')[0].offsetHeight + 20;
       const sidebarWrapper = document.getElementById("fixed-wrapper");
+      
 
       function sidebarClasses(setup) {
         $("body").addClass("custom-sidebar");
-        $(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
-        $(".sticky-sidebar").css("top", stickyOffset + "px");
+        //$(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
+        $(".sticky-sidebars").css("top", stickyOffset + "px");
+        
+        //toni
+        $( ".discovery-list-container-top-outlet" ).parent().addClass("discovery-list-container-parent");
       }
 
       if (/^\/tag\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
@@ -63,11 +68,14 @@
       return postCache[id];
     }
   });
-</script>
+  
+  
+</script> 
 
 <script
   type="text/x-handlebars"
-  data-template-name="/connectors/before-topic-list-body/tag-sidebar"
->
-  <div class="tag-sidebar"> {{mount-widget widget="tag-sidebar"}} </div>
+  data-template-name="/connectors/discovery-list-container-top/tag-sidebar">
+    <div class="tag-sidebar">
+  {{mount-widget widget="tag-sidebar"}} 
+  </div>
 </script>
