@@ -107,3 +107,10 @@
   }
 }
 
+//toni
+.custom-sidebar #main-outlet {
+    display: grid;
+}
+.custom-sidebar #main-outlet .discovery-list-container-parent {
+    order: -1 !important;
+}
