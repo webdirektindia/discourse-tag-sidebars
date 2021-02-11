@@ -30,7 +30,6 @@
       const tag = controller.get("tag");
       const stickyOffset  = document.getElementsByClassName('d-header')[0].offsetHeight + 20;
       const sidebarWrapper = document.getElementById("fixed-wrapper");
-      let tag = controller.get("target.currentRoute.params.tag_id");
       
 
       function sidebarClasses(setup) {
@@ -42,7 +41,7 @@
         $( ".discovery-list-container-top-outlet" ).parent().addClass("discovery-list-container-parent");
       }
 
-      if (/^\/tag\//.test(path) && setups[tag.id] && tag != "none"){ // If set, show tag sidebar
+      if (/^\/tag\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
         const setup = setups[tag.id];
         //sidebarClasses(setup);
         
