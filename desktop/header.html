@@ -74,13 +74,14 @@
         });
       }
       return postCache[id];
-    },
-    
-     api.decorateWidget('tag-sidebar:after', helper => {
+    }
+  
+  }),
+  
+   api.decorateWidget('tag-sidebar:after', helper => {
       helper.widget.appEvents.on('page:changed', () => {
           helper.widget.scheduleRerender();
       });
-  
   });
   
   
