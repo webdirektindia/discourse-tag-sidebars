@@ -76,7 +76,7 @@
       return postCache[id];
     },
     
-     api.decorateWidget('tag-header-widget:after', helper => {
+     api.decorateWidget('tag-sidebar:after', helper => {
       helper.widget.appEvents.on('page:changed', () => {
           helper.widget.scheduleRerender();
       });
