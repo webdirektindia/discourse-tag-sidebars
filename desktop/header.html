@@ -64,6 +64,7 @@
         $(".topic-list").removeClass("with-sidebar");
       }
     },
+   
 
     getPost(id) {
       if (!postCache[id]) {
@@ -73,7 +74,12 @@
         });
       }
       return postCache[id];
-    }
+    },
+    
+     api.decorateWidget('tag-header-widget:after', helper => {
+      helper.widget.appEvents.on('page:changed', () => {
+          helper.widget.scheduleRerender();
+      });
   
   });
   
