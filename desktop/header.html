@@ -41,7 +41,7 @@
         $( ".discovery-list-container-top-outlet" ).parent().addClass("discovery-list-container-parent");
       }
 
-      if (/^\/tag\//.test(path)){ // If set, show tag sidebar
+      if (/^\/tag\//.test(path) && setups[tag.id]){ // If set, show tag sidebar
         const setup = setups[tag.id];
         //sidebarClasses(setup);
         
