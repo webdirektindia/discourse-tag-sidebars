@@ -33,7 +33,7 @@
       
 
       function sidebarClasses(setup) {
-        $("body").addClass("custom-sidebar");
+        $("body").addClass("custom-tag-sidebar");
         //$(".topic-list").addClass("with-sidebar").addClass(settings.sidebar_side);
         $(".sticky-sidebars").css("top", stickyOffset + "px");
         
@@ -52,10 +52,10 @@
         ];
         return h("div.tag-sidebar-contents " + ".tag-sidebar-" + tag.id, nodes);
 
-     } else {
-        $("body").removeClass("custom-sidebar");
-        $(".topic-list").removeClass("with-sidebar");
-      }
+     } 
+        $("body").removeClass("custom-tag-sidebar");
+        //$(".topic-list").removeClass("with-sidebar");
+      
     },
    
 
