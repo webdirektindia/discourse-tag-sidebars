@@ -26,7 +26,7 @@
 
     html() {
       const path = window.location.pathname;
-      const controller = container.lookup("controller:tags-show");
+      const controller = container.lookup("controller:tag-show");
       const tag = controller.get("tag");
       const stickyOffset  = document.getElementsByClassName('d-header')[0].offsetHeight + 20;
       const sidebarWrapper = document.getElementById("fixed-wrapper");
